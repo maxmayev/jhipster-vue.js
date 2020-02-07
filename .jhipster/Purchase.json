@@ -1,0 +1,39 @@
+{
+    "name": "Purchase",
+    "fields": [
+        {
+            "fieldName": "orderDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "consumer",
+            "otherEntityRelationshipName": "purchase",
+            "relationshipName": "consumerName",
+            "otherEntityField": "firstName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "purchaseName",
+            "relationshipName": "productName",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200207180418",
+    "entityTableName": "purchase",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,42 @@
+entity Consumer {
+	/**
+	* The firstname attribute.
+	*/
+    lastName String,
+	firstName String,
+    patranimicName String,
+	phoneNumber String,
+    email String,
+	photo ImageBlob
+}
+
+entity Product {
+	name String,
+	cost Long,
+	picture ImageBlob
+}
+
+entity Category {
+	name String
+}
+
+entity Category {
+	name String
+}
+
+entity OrderDate {
+	orderDate ZonedDateTime 
+}
+
+
+relationship ManyToMany {
+	Consumer{product(name)} to Product{consumer},
+    Product{category} to Category{product(name)},
+}
+
+relationship OneToOne {
+ 	OrderDate{consumer(name)} to Consumer{orderDate}
+}
+
+// Set pagination options
+paginate Consumer, Product with pagination
